@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cypress Service Worker Test</title>
+</head>
+<body>
+  <h1>Cypress Service Worker Test</h1>
+  <p>
+    Service Worker Output:
+    <span id="worker-output">Waiting for message..</span>
+  </p>
+  <script>
+    navigator.serviceWorker.register('/service-worker.js', { scope: '/' })
+    navigator.serviceWorker.ready.then(function (registration) {
+      navigator.serviceWorker.addEventListener('message', function (event) {
+        document.getElementById('worker-output').textContent = event.data
+      })
+
+      registration.active.postMessage('Hello!')
+    })
+  </script>
+</body>
+</html>

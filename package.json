@@ -1,0 +1,11 @@
+{
+  "name": "cypress-service-worker-reload",
+  "scripts": {
+    "serve-static": "http-server ./static",
+    "cypress": "cypress open"
+  },
+  "devDependencies": {
+    "cypress": "^13.6.0",
+    "http-server": "^14.1.1"
+  }
+}
